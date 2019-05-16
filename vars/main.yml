@@ -1,0 +1,5 @@
+---
+# vars file for cyhy_reports
+
+# The GitHub OAUTH token
+github_oauth_token: "{{ lookup('aws_ssm', '/github/oauth_token') }}"

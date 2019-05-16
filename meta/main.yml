@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: First Last
-  description: Skeleton Ansible role
+  author: Shane Frasier
+  description: Install jsf9k/cyhy-reports.
   company: CISA NCATS
   license: CC0
   min_ansible_version: 2.0
@@ -9,10 +9,12 @@ galaxy_info:
     - name: Debian
       versions:
         - stretch
-    - name: Amazon
-      versions:
-        - 2018.03
   galaxy_tags:
-    - skeleton
+    - cyhy
+    - reports
 
-dependencies: []
+dependencies:
+  - src: https://github.com/dhs-ncats/ansible-role-cyhy-core
+    name: cyhy_core
+  - src: https://github.com/dhs-ncats/ansible-role-ncats-webd
+    name: ncats_webd

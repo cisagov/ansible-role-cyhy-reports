@@ -1,0 +1,5 @@
+---
+# handlers file for cyhy_reports
+
+- name: Install the cyhy-reports fonts
+  command: fc-cache --system-only

@@ -1,0 +1,11 @@
+---
+# boto3 is installed anywhere we would be applying this Ansible role
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Install pip
+      package:
+        name: python-pip
+    - name: Install boto3
+      pip:
+        name: boto3
