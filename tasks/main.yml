@@ -11,7 +11,8 @@
 
 - name: Download and untar the cyhy-reports tarball
   unarchive:
-    src: "https://api.github.com/repos/jsf9k/cyhy-reports/tarball/develop?\
+    # TODO revert back to develop when done testing
+    src: "https://api.github.com/repos/jsf9k/cyhy-reports/tarball/improvement/cyhy_notifications?\
     access_token={{ github_oauth_token }}"
     dest: /var/local/cyhy/reports
     remote_src: yes
