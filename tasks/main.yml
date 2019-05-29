@@ -11,8 +11,7 @@
 
 - name: Download and untar the cyhy-reports tarball
   unarchive:
-    # TODO revert back to develop when done testing
-    src: "https://api.github.com/repos/jsf9k/cyhy-reports/tarball/improvement/cyhy_notifications?\
+    src: "https://api.github.com/repos/jsf9k/cyhy-reports/tarball/develop?\
     access_token={{ github_oauth_token }}"
     dest: /var/local/cyhy/reports
     remote_src: yes
@@ -70,8 +69,8 @@
     mode: 0755
     remote_src: yes
   loop:
-    - { script: "create_snapshots_reports_scorecard.py", dest_dir: "reports" }
-    - { script: "create_send_notifications.py", dest_dir: "notifications" }
+    - {script: "create_snapshots_reports_scorecard.py", dest_dir: "reports"}
+    - {script: "create_send_notifications.py", dest_dir: "notifications"}
 
 # rsync is required by synchronize
 - name: Install rsync
