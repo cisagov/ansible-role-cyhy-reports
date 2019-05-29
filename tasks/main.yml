@@ -65,13 +65,13 @@
 
 - name: Copy the reporting and notification scripts
   copy:
-    src: "/var/local/cyhy/reports/extras/{{ item }}"
-    dest: "/var/cyhy/reports/{{ item }}"
+    src: "/var/local/cyhy/reports/extras/{{ item.script }}"
+    dest: "/var/cyhy/{{ item.dest_dir }}/{{ item.script }}"
     mode: 0755
     remote_src: yes
   loop:
-    - create_snapshots_reports_scorecard.py
-    - create_send_notifications.py
+    - { script: "create_snapshots_reports_scorecard.py", dest_dir: "reports" }
+    - { script: "create_send_notifications.py", dest_dir: "notifications" }
 
 # rsync is required by synchronize
 - name: Install rsync
