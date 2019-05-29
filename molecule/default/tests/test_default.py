@@ -23,6 +23,9 @@ def test_packages(host, pkg):
         "/var/cyhy/reports",
         "/var/cyhy/reports/output",
         "/var/cyhy/reports/create_snapshots_reports_scorecard.py",
+        "/var/cyhy/notifications",
+        "/var/cyhy/notifications/output",
+        "/var/cyhy/notifications/create_send_notifications.py",
     ],
 )
 def test_files(host, f):
