@@ -2,6 +2,7 @@
 dist: xenial
 language: python
 python: 3.7
+# pre-commit hooks can use Docker, so we should go ahead and enable it
 services: docker
 
 env:
@@ -50,6 +51,12 @@ before_install:
   - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
   - rm -f terraform.zip
   - go get github.com/segmentio/terraform-docs
+
+# Cache pip packages and pre-commit plugins to speed up builds
+cache:
+  pip: true
+  directories:
+    - $HOME/.cache/pre-commit
 
 install:
   - pip install --upgrade -r requirements-test.txt
