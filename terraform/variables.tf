@@ -4,7 +4,7 @@ variable "aws_region" {
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   description = "Tags to apply to all AWS resources created"
 
   default = {
@@ -14,7 +14,7 @@ variable "tags" {
 }
 
 variable "ssm_parameters" {
-  type        = "list"
+  type        = list(string)
   description = "The AWS SSM parameters that the IAM user needs to be able to read."
   default     = ["/github/oauth_token"]
 }
