@@ -7,45 +7,37 @@ services: docker
 
 env:
   global:
-    - secure: "OADlB5lJqtfgEx9L4Fwee4/YRBhEgAgZPrWH7dc6Or0uAbA/jcvPw53\
-      nQrf8b0weAMGtB3R0JtFq3me9F++dKHaEspxRzh7GAuScc8WF9B+tTpDwHKKKNBU\
-      +YeapYwmkntVYVNIy8+asqGtd+LrECbBRTR8/KcxxwFkGpTEbcs/fIWT7L/JU9kr\
-      Go/xfpXsYxZZVMfcePhRAeZkuruXLiLbKlKuiJfIF80+Tjkdj9QdF0xiTCNV/xrL\
-      GURTD1r+r1ixWQ0Sf2ojAhrAW3fjrl06Xmyx5SkQSYvVDQoEsrHXrkuWS3lhD68I\
-      YCKNpuN9IYRleQqIPJIS7K9gcJ/BQsqnhqk0FGQRTkXaF/3dRLJ/CnMBcAk5a4Vs\
-      aTNUHiLo0cSYww9LDngiRt90NqTFD2ywPPKr3i0jC5otKqfs9U596tbJUXTLEaHM\
-      8qGULJFrX/M3a7hmu4pJBI6GXO9M5eBXCjI53TzWNvArKhxLEqm0zagn9o+QH7Dj\
-      nGqbDLiMDyqWbC138mc6Yh92Hv7dISUOb1fa2L2RwoAzqEmANPNsd7UwnYb4ZUrN\
-      6K8mgF8GUP6rllW+w5swCkU+VfPWBjRPi/WLjYda9Iap7KfKPxVhetrGurFAVnOM\
-      BjMtntr3yz/oyb8KhM6fm0pXBzWAcS+T83WQafcfVqLCcGv2dSZk="
-    - secure: "kjHApz0iO2Cv/twhJbi7H43CT0XdOWPU6hso+TduboAm86aFOinCIZM\
-      YrHjI3gZpFlwJaDBsQEIUA7Pt2cUnhvmqgDhqFva9DjLkO7GUw36gQjJwZ8lWG/9\
-      FraCtPr6UD7CDfirr4BRJTE6AhkFdXz1uWrPQgJu8XWIMyxFKM3F27/RedSrKvxO\
-      WCxtv+QWyPwID5oOEkB5kKNJZLarLvJu54RM5f7yCRqNQ6mRz/ZK6eqWBgigpObE\
-      p6Kss3xoxCM4v7fVZjD606hTvrvjpOuOh7eIb3qgdQFBReACSWAW7yhAdbUQDkRe\
-      nufWj/M+vAqughJOJ0XdiaTAsEbH6XBckeZIxXdkZmp77aI1VuSG7+OO7Q22cUyl\
-      VpBgHQZkfWGS79Y8jnc0+zXLKrn4saq0hDIjOv5PO8D60vjZj8froNh2opwKUFB6\
-      f7W36n1gSivvxpJyer0qv8XdHl3tIi6y78g+uUfvlKeUeCNka3Xm8tjPgHvsQykO\
-      qhV2Vz+8AMED+PFd+qFfg02dPxXe4YJNl7R6QdoTyQnVN8bxHG7vQfRJMwyTygxB\
-      bugQSlvGL0E96IupcW4up2l0j+8DcECpqqSABruuBI+rFVH4VfGDz2cL8Us4o98e\
-      2nqhyXR19LONXL5NoxnO8dIiChcrDlvWj7Bl8YJvON1SdtgZZXoo="
-    - secure: "ojgMRKmE0eT8FqIl1XbCw8v3RN3LQp6ql9HrEkZm2UZtEEcwFqdg4b+\
-      J6WFuWZwXPQh5vjEeHla4fwyAkJvNNloubz4Rxk48yu4fu22K3xJrwAiH1q5TCb8\
-      hneEplhNdqkC1auwMQ9XLHt/hXZjmOLkkX6FT+ihZx7rNnY6+DKNUKZSfx4xrHWX\
-      QZpR1Uks0ag8JxCu+QSv90QuDW2XashdRAtnPlKeuOBcAXsf03KJpnMek7W0lfWc\
-      a00LHYZmQNyJZzvebjv5ZxW04+FBf6xKHFHxMERe+cabHEfgudlpXR4U9zeZzbav\
-      ICv+LtHXWjDCtKfIXhQxTf+GzGn9Uk4NPMLsYvpjNzweNdj8eqqPtwh7+yOsKwH1\
-      zYGiKByRzIx3uGKqAnsrrR0LmwkEkacYEEsfmIYd71dUgm9wdYUj1zwpBKzcRy/G\
-      IoLuKKGA2K5Zt+d7nmtve+J6kSJeKxGfDANBCcgM1e5/eDtMRUcAHFLuNYpnEMvG\
-      60JCV7zR9eylsx0fxKOZsP3mIWG0hDGyCfsAIsasSLfy1eKwGz6tLAtc+U50CToK\
-      73rcNb1n66yc3XOZzamTYvSJojllJmYIKISm3klxt2BPc9QU5ilDpy7Jt0E9hV3x\
-      G4g6Bngq4N0iYTgbQnTYZVmKtAZFeg1EWKKLvo4FROFshDEEQRlE="
+    - AWS_DEFAULT_REGION="us-east-1"
+    # AWS_ACCESS_KEY_ID
+    - secure: "FyCCy2dr9ADJglk9tDIgJx7Vg0kxSLL/5KWY03RrGeCZsgXBu7lX2zK\
+      ju4pKdnRVzdHZIANLODki6f4vxKa6qZ5lESNnCQRRsGRpSwJoflajOeWTEN3Nw8U\
+      CVXno7JM+Fl7iIDoGYX8T6G3IJxTVt4bDry/xEfZTr6sPGqNwKaAz0z3RMmip/i+\
+      lKyiCO2LOCZbqT1AA+IdMtvEEfJ+pcs8Zl5YLn2+d+JedDEJ7TlQKGD9CyGxwmBx\
+      Xw8tSMH9yWD1PaWnTpdzrxe4jbrNVe58DCdgZEDgYZGTtlyHIVhwzIBSS3kA2su6\
+      DQzpWNF/CqKegxZ9hQghL+cn2StCGMe4Ai5npuLrGDCdq8jvH4703nvUzlQQFjlu\
+      57Evguy87NYottV6lPl4EVVPPbhdCQPgaHSkKrchMLIPQcBVIM1RuV7uay9ssQLw\
+      ynsdLSSwGqDkanAUv5fvBSDf8h0EzqadGlxdEmg6xn3ImFmMCnSIRzdJUctZRRII\
+      xxISWXItRdKSqfX0577F6V0/zPuay1YmGjtpFDjPL0A15SdDBDdtQGxpxjtWujeM\
+      7Ujt/7oztgGN631C7O87+jIVRXITwuKUKfJH6hlT4+GljJoQC5+ctXA91xEwQFl+\
+      zcJIz7LhPTkvlFiXKUd5hZixZHwGSNT4EUst0ugsjupZ8rmaVUOw="
+    # AWS_SECRET_ACCESS_KEY
+    - secure: "hX5zyzYPEmzbsPGPZWQoAY0hBKtOuRIGDv5N2DSef84Q4gF3k6KgvP2\
+      vpxHkwQ/2jQmqxqIXa3f1XVq/PwRNTAvAKlj16yyTpm/iz5OH13lT7B5IS05WsIh\
+      uboDv3VjfCHQ9//Vf1dX/Q2fohH31aqwuJ+CQjzBlujoIbNCCxd7yo1GDZkfOUGR\
+      f27v/T+tGpA/+Ik4nqA+Y+pldjopkuOLKP7qU2Or3kZgimOt268KCk/xpJvWZwuo\
+      vwcQMu4FcFuLUJ4v79CByGslxzyGh71FZ9RCMXEvQk5s50FwaqzqscQ5Inpib70g\
+      ObEy4iBhUSrR8+j71a+afog9dXYSwCcYvT6tQlKaJp9WZWe1t8Bzlc73+S3nb9T9\
+      Ou8IqWbaAcx5gvSfLGgjxyAY7Y0JwMh4ftzf6S1muAVi43eVt/mJRC022CrDy75F\
+      YSppQ8czop8iWKh2Qy80Rqc9pEHQQcCFuepmPv/LqdzcCZFSG+hjmuKogUoHOxyS\
+      TfxeWwLoYNKqMetbhYthipwb2Erlca4RkyuxECUSSkQPT1mJl7/gztymfSdLPPPT\
+      H2mP5OX3ooeYDs8I9hb8kStCiXNcvUUFK7J9D/MuZzQ3lePOb14VHWtL0N4P7QLS\
+      KeeZGNxLN8yhqj3mWc56tEYcWnba9shKRt32NtL/5EaZPmJtVseE="
 
 # Install terraform and terraform-doc
 before_install:
   - >
     wget
-    https://releases.hashicorp.com/terraform/0.12.1/terraform_0.12.1_linux_amd64.zip
+    https://releases.hashicorp.com/terraform/0.12.3/terraform_0.12.3_linux_amd64.zip
     -O terraform.zip
   - sudo unzip terraform.zip -d /opt/terraform
   - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
