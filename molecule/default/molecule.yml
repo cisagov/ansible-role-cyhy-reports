@@ -11,6 +11,7 @@ lint: |
 platforms:
   - name: debian9
     image: debian:stretch-slim
+    dockerfile: Dockerfile_debian_9.j2
 provisioner:
   name: ansible
   config_options:
