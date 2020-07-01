@@ -1,11 +1,11 @@
 # ansible-role-cyhy-reports #
 
-[![Build Status](https://travis-ci.com/cisagov/ansible-role-cyhy-reports.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-role-cyhy-reports)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-cyhy-reports/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-reports/actions)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-cyhy-reports.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-reports/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cyhy-reports.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-reports/context:python)
 
 An Ansible role for installing
-[jsf9k/cyhy-reports](https://github.com/jsf9k/cyhy-reports).
+[cisagov/cyhy-reports](https://github.com/cisagov/cyhy-reports).
 
 ## Requirements ##
 
