@@ -11,8 +11,7 @@
 
 - name: Download and untar the cyhy-reports tarball
   unarchive:
-    src: "https://api.github.com/repos/jsf9k/cyhy-reports/tarball/develop?\
-    access_token={{ github_oauth_token }}"
+    src: "https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop"
     dest: /var/local/cyhy/reports
     remote_src: yes
     extra_opts:
@@ -23,7 +22,7 @@
 #
 
 # These dependencies are from here:
-# https://github.com/jsf9k/cal-overlay/blob/develop/net-analyzer/cyhy-reports/cyhy-reports-1.0.12.ebuild#L31-L49
+# https://github.com/cisagov/cal-overlay/blob/develop/net-analyzer/cyhy-reports/cyhy-reports-1.0.12.ebuild#L31-L49
 #
 # I'd prefer to install the python dependencies via pip, but then I
 # get errors about modules being built with a different version of
