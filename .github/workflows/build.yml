@@ -20,7 +20,7 @@ jobs:
       - uses: cisagov/setup-env-github-action@develop
       - uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
       - uses: actions/setup-go@v2
@@ -30,22 +30,16 @@ jobs:
         run: |
           echo "::set-env name=PY_VERSION::"\
           "$(python -c "import platform;print(platform.python_version())")"
-      - name: Cache pip test requirements
-        uses: actions/cache@v1
+      - name: Cache linting environments
+        uses: actions/cache@v2
         with:
-          path: ${{ env.PIP_CACHE_DIR }}
-          key: "${{ runner.os }}-pip-test-py${{ env.PY_VERSION }}-\
-            ${{ hashFiles('**/requirements-test.txt') }}"
-          restore-keys: |
-            ${{ runner.os }}-pip-test-py${{ env.PY_VERSION }}-
-            ${{ runner.os }}-pip-test-
-            ${{ runner.os }}-pip-
-      - name: Cache pre-commit hooks
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.PRE_COMMIT_CACHE_DIR }}
-          key: "${{ runner.os }}-pre-commit-py${{ env.PY_VERSION }}-\
+          path: |
+            ${{ env.PIP_CACHE_DIR }}
+            ${{ env.PRE_COMMIT_CACHE_DIR }}
+          key: "lint-${{ runner.os }}-py${{ env.PY_VERSION }}-\
+            ${{ hashFiles('**/requirements-test.txt') }}-\
             ${{ hashFiles('**/.pre-commit-config.yaml') }}"
+<<<<<<< HEAD
       - name: Cache curl downloads
         uses: actions/cache@v1
         with:
@@ -80,6 +74,11 @@ jobs:
             | sort -u) ]]; do \
             terraform init -upgrade=true -input=false -backend=false "$path"; \
             done
+=======
+          restore-keys: |
+            lint-${{ runner.os }}-py${{ env.PY_VERSION }}-
+            lint-${{ runner.os }}-
+>>>>>>> 05c10e6aff9ff1f827e3b4b10511f9b28fa05b71
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -108,23 +107,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
       - name: Store installed Python version
         run: |
           echo "::set-env name=PY_VERSION::"\
           "$(python -c "import platform;print(platform.python_version())")"
-      - name: Cache pip test requirements
-        uses: actions/cache@v1
+      - name: Cache testing environments
+        uses: actions/cache@v2
         with:
           path: ${{ env.PIP_CACHE_DIR }}
-          key: "${{ runner.os }}-pip-test-py${{ env.PY_VERSION }}-\
+          key: "test-${{ runner.os }}-py${{ env.PY_VERSION }}-\
             ${{ hashFiles('**/requirements-test.txt') }}"
           restore-keys: |
-            ${{ runner.os }}-pip-test-py${{ env.PY_VERSION }}-
-            ${{ runner.os }}-pip-test-
-            ${{ runner.os }}-pip-
+            test-${{ runner.os }}-py${{ env.PY_VERSION }}-
+            test-${{ runner.os }}-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
