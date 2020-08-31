@@ -6,11 +6,15 @@
 #
 - name: Create the /var/local/cyhy/reports directory
   file:
+    mode: 0755
     path: /var/local/cyhy/reports
     state: directory
 
 - name: Download and untar the cyhy-reports tarball
-  unarchive:
+  # ansible-lint E208 gives an error if we don't specify the mode,
+  # but we definitely don't want to do that here since it will
+  # override the permissions on the files in the archive.
+  unarchive: # noqa 208
     src: "https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop"
     dest: /var/local/cyhy/reports
     remote_src: yes
@@ -53,6 +57,7 @@
 
 - name: Create some directories that cyhy-reports requires
   file:
+    mode: 0755
     path: "{{ item }}"
     state: directory
   loop:
