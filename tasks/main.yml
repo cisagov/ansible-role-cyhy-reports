@@ -11,10 +11,7 @@
     state: directory
 
 - name: Download and untar the cyhy-reports tarball
-  # ansible-lint E208 gives an error if we don't specify the mode,
-  # but we definitely don't want to do that here since it will
-  # override the permissions on the files in the archive.
-  unarchive: # noqa 208
+  unarchive:
     src: "https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop"
     dest: /var/local/cyhy/reports
     remote_src: yes
