@@ -10,6 +10,8 @@ ansible>=2.10,<3
 # We can unpin once everything with the v5 update has shaken out and we have a
 # clear path forward.
 ansible-lint<5
+# This is needed for AWS SSM lookup() in
+# https://github.com//cisagov/ansible-role-cyhy-core
 boto3
 flake8
 molecule[docker]
