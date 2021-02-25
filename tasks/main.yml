@@ -5,13 +5,13 @@
 # Grab the cyhy-reports code
 #
 - name: Create the /var/local/cyhy/reports directory
-  file:
+  ansible.builtin.file:
     mode: 0755
     path: /var/local/cyhy/reports
     state: directory
 
 - name: Download and untar the cyhy-reports tarball
-  unarchive:
+  ansible.builtin.unarchive:
     src: "https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop"
     dest: /var/local/cyhy/reports
     remote_src: yes
@@ -30,7 +30,7 @@
 # numpy than what is on the host.  Doing it this way seems to work
 # much better.
 - name: Install cyhy-reports dependencies
-  package:
+  ansible.builtin.package:
     name:
       - python-mpltoolkits.basemap
       - python-numpy
@@ -49,11 +49,11 @@
       - texlive-xetex
 
 - name: Install cyhy-reports
-  pip:
+  ansible.builtin.pip:
     name: file:///var/local/cyhy/reports
 
 - name: Create some directories that cyhy-reports requires
-  file:
+  ansible.builtin.file:
     mode: 0755
     path: "{{ item }}"
     state: directory
@@ -62,7 +62,7 @@
     - /var/cyhy/reports/output
 
 - name: Copy the reporting and notification scripts
-  copy:
+  ansible.builtin.copy:
     src: "/var/local/cyhy/reports/extras/{{ item }}"
     dest: "/var/cyhy/reports/{{ item }}"
     mode: 0755
@@ -73,11 +73,11 @@
 
 # rsync is required by synchronize
 - name: Install rsync
-  package:
+  ansible.builtin.package:
     name: rsync
 
 - name: Copy the cyhy-reports fonts
-  synchronize:
+  ansible.posix.synchronize:
     src: /var/local/cyhy/reports/cyhy_report/assets/Fonts/
     dest: /usr/local/share/fonts
   delegate_to: "{{ inventory_hostname }}"

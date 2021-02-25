@@ -2,4 +2,4 @@
 # handlers file for cyhy_reports
 
 - name: Install the cyhy-reports fonts
-  command: fc-cache --system-only
+  ansible.builtin.command: fc-cache --system-only
