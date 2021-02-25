@@ -19,6 +19,20 @@ platforms:
   - name: debian9
     image: debian:stretch-slim
     dockerfile: Dockerfile_debian_9.j2
+  # - name: debian10
+  #   image: debian:buster-slim
+  # - name: debian11
+  #   image: debian:bullseye-slim
+  # - name: kali
+  #   image: kalilinux/kali-rolling
+  # - name: fedora32
+  #   image: fedora:32
+  # - name: fedora33
+  #   image: fedora:33
+  # - name: ubuntu18
+  #   image: ubuntu:bionic
+  # - name: ubuntu20
+  #   image: ubuntu:focal
 provisioner:
   name: ansible
   inventory:
