@@ -63,8 +63,8 @@ None.
 
 ## Dependencies ##
 
-* [cisagov/ansible-role-cyhy-core](https://github.com/cisagov/ansible-role-cyhy-core)
-* [cisagov/ansible-role-ncats-webd](https://github.com/cisagov/ansible-role-ncats-webd)
+- [cisagov/ansible-role-cyhy-core](https://github.com/cisagov/ansible-role-cyhy-core)
+- [cisagov/ansible-role-ncats-webd](https://github.com/cisagov/ansible-role-ncats-webd)
 
 ## Example Playbook ##
 
