@@ -12,8 +12,32 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts("all")
 
 
+@pytest.mark.parametrize(
+    "pkg",
+    [
+        "python-mpltoolkits.basemap",
+        "python-numpy",
+        "python-dateutil",
+        "python-netaddr",
+        "python-pandas",
+        "python-progressbar",
+        "python-docopt",
+        "python-unicodecsv",
+        "python-pypdf2",
+        "texlive",
+        "texlive-fonts-extra",
+        "texlive-latex-extra",
+        "texlive-science",
+        "texlive-xetex",
+    ],
+)
+def test_apt_packages(host, pkg):
+    """Test that the apt packages were installed."""
+    assert host.package(pkg).is_installed
+
+
 @pytest.mark.parametrize("pkg", ["cyhy-reports"])
-def test_packages(host, pkg):
+def test_pip_packages(host, pkg):
     """Test that the pip packages were installed."""
     assert pkg in host.pip_package.get_packages()
 
