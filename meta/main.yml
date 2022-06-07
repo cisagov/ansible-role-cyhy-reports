@@ -15,9 +15,15 @@ galaxy_info:
   min_ansible_version: 2.10
   namespace: cisagov
   platforms:
+    # cyhy-reports is still Python 2 and with distributions ending support for
+    # Python 2 we can only support a limited number of platforms.
     - name: Debian
       versions:
         - stretch
+        - buster
+    - name: Ubuntu
+      versions:
+        - bionic
   role_name: cyhy_reports
 
 dependencies:
