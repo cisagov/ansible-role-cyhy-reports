@@ -49,6 +49,7 @@
 
 - name: Install cyhy-reports
   ansible.builtin.pip:
+    executable: /usr/bin/pip2
     name: file:///var/local/cyhy/reports
 
 - name: Create some directories that cyhy-reports requires
