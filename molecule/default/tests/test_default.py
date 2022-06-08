@@ -45,6 +45,7 @@ def test_pip_packages(host, pkg):
 @pytest.mark.parametrize(
     "f",
     [
+        "/usr/local/share/fonts",
         "/var/local/cyhy/reports",
         "/var/cyhy/reports",
         "/var/cyhy/reports/output",
