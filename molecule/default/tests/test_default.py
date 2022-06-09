@@ -24,6 +24,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
         "python-docopt",
         "python-unicodecsv",
         "python-pypdf2",
+        "rsync",
         "texlive",
         "texlive-fonts-extra",
         "texlive-latex-extra",
