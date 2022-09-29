@@ -2,30 +2,13 @@
 # tasks file for cyhy_reports
 
 #
-# Grab the cyhy-reports code
-#
-- name: Create the /var/local/cyhy/reports directory
-  ansible.builtin.file:
-    mode: 0755
-    path: /var/local/cyhy/reports
-    state: directory
-
-- name: Download and untar the cyhy-reports tarball
-  ansible.builtin.unarchive:
-    src: "https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop"
-    dest: /var/local/cyhy/reports
-    remote_src: yes
-    extra_opts:
-      - "--strip-components=1"
-
-#
 # Install cyhy-reports
 #
 
-# These dependencies are from here:
-# https://github.com/cisagov/cal-overlay/blob/develop/net-analyzer/cyhy-reports/cyhy-reports-1.0.12.ebuild#L31-L49
+# The Python dependencies are from here:
+# https://github.com/cisagov/cyhy-reports/blob/develop/setup.py#L50-L71
 #
-# I'd prefer to install the python dependencies via pip, but then I
+# I'd prefer to install the Python dependencies via pip, but then I
 # get errors about modules being built with a different version of
 # numpy than what is on the host.  Doing it this way seems to work
 # much better.
@@ -36,7 +19,6 @@
       - python-numpy
       - python-dateutil
       - python-netaddr
-      - python-pystache
       - python-pandas
       - python-progressbar
       - python-docopt
@@ -48,11 +30,16 @@
       - texlive-science
       - texlive-xetex
 
-- name: Install cyhy-reports
+- name: Install the cyhy-reports package
   ansible.builtin.pip:
-    name: file:///var/local/cyhy/reports
+    executable: /usr/bin/pip2
+    name: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
 
-- name: Create some directories that cyhy-reports requires
+#
+# Download the cyhy-reports code for some extra content we need
+#
+
+- name: Create the directories we need for cyhy-reports
   ansible.builtin.file:
     mode: 0755
     path: "{{ item }}"
@@ -60,6 +47,15 @@
   loop:
     - /var/cyhy/reports
     - /var/cyhy/reports/output
+    - /var/local/cyhy/reports
+
+- name: Download and untar the cyhy-reports tarball
+  ansible.builtin.unarchive:
+    src: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
+    dest: /var/local/cyhy/reports
+    remote_src: yes
+    extra_opts:
+      - "--strip-components=1"
 
 - name: Copy the reporting and notification scripts
   ansible.builtin.copy:
@@ -71,7 +67,7 @@
     - create_snapshots_reports_scorecard.py
     - create_send_notifications.py
 
-# rsync is required by synchronize
+# rsync is required by the synchronize module
 - name: Install rsync
   ansible.builtin.package:
     name: rsync

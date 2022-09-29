@@ -16,16 +16,15 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  # cyhy-reports is Python 2 only, and the only platform we currently support
-  # for Python 2 is Debian Stretch. Until this restriction changes we need to
-  # disable testing for all other platforms.
+  # cyhy-reports is still Python 2 and with distributions ending support for
+  # Python 2 we can only support a limited number of platforms.
   # - name: amazonlinux2
   #   image: amazonlinux:2
   - name: debian9
     image: debian:stretch-slim
     dockerfile: Dockerfile_debian_9.j2
-  # - name: debian10
-  #   image: debian:buster-slim
+  - name: debian10
+    image: debian:buster-slim
   # - name: debian11
   #   image: debian:bullseye-slim
   # - name: debian12
@@ -36,8 +35,8 @@ platforms:
   #   image: fedora:34
   # - name: fedora35
   #   image: fedora:35
-  # - name: ubuntu18
-  #   image: ubuntu:bionic
+  - name: ubuntu18
+    image: ubuntu:bionic
   # - name: ubuntu20
   #   image: ubuntu:focal
 provisioner:
