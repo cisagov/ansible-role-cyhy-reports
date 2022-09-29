@@ -1,15 +1,11 @@
 ---
 - src: https://github.com/cisagov/ansible-role-cyhy-core
   name: cyhy_core
-  version: improvement/update_platforms_supported
 - src: https://github.com/cisagov/ansible-role-ncats-webd
   name: ncats_webd
-  version: improvement/update_platforms_supported
 - src: https://github.com/cisagov/ansible-role-pip
   name: pip
-  version: improvement/control-installation-of-pip2-via-role-var
 - src: https://github.com/cisagov/ansible-role-python
   name: python
-  version: improvement/control-installation-of-python2-via-role-var
 - src: https://github.com/cisagov/ansible-role-upgrade
   name: upgrade
