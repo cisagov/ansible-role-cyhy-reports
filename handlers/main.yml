@@ -1,5 +1,8 @@
 ---
-# handlers file for cyhy_reports
-
 - name: Install the cyhy-reports fonts
-  ansible.builtin.command: fc-cache --system-only
+  ansible.builtin.command:
+    cmd: /usr/bin/fc-cache --system-only
+
+- name: Ensure that any texmf config changes take effect
+  ansible.builtin.command:
+    cmd: /usr/sbin/update-texmf

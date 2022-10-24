@@ -1,5 +1,6 @@
 ---
-# tasks file for cyhy_reports
+- name: Install and configure TeX Live
+  ansible.builtin.include_tasks: install_and_configure_texlive.yml
 
 #
 # Install cyhy-reports
@@ -24,11 +25,6 @@
       - python-docopt
       - python-unicodecsv
       - python-pypdf2
-      - texlive
-      - texlive-fonts-extra
-      - texlive-latex-extra
-      - texlive-science
-      - texlive-xetex
 
 - name: Install the cyhy-reports package
   ansible.builtin.pip:

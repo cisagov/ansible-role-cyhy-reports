@@ -1,0 +1,17 @@
+- name: Install TeX Live
+  ansible.builtin.package:
+    name:
+      - texlive
+      - texlive-fonts-extra
+      - texlive-latex-extra
+      - texlive-science
+      - texlive-xetex
+
+- name: Create config file to increase size of texmf buffer
+  ansible.builtin.template:
+    dest: /etc/texmf/texmf.d/99buffer_size.cnf
+    group: root
+    mode: 0644
+    owner: root
+    src: buffer_size.cnf.j2
+  notify: Ensure that any texmf config changes take effect

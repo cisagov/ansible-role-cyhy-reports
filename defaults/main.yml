@@ -1,0 +1,5 @@
+---
+# The value to use for the texmf buffer size.
+#
+# This is the default value from the OS package.
+texmf_buffer_size: 200000
