@@ -57,3 +57,14 @@ def test_pip_packages(host, pkg):
 def test_files(host, f):
     """Test that the expected files and directories are present."""
     assert host.file(f).exists
+
+
+def test_texmf_configuration(host):
+    """Test that the texmf configuration was modified as expected."""
+    cmd = host.run("kpsewhich texmf.cnf")
+    assert cmd.rc == 0
+    texmf_config_filename = cmd.stdout.strip()
+    texmf_config_file = host.file(texmf_config_filename)
+    assert texmf_config_file.exists
+    assert texmf_config_file.is_file
+    assert texmf_config_file.contains(r"buf_size=\d*")
