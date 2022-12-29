@@ -1,8 +1,7 @@
 # ansible-role-cyhy-reports #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-cyhy-reports/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-reports/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-cyhy-reports.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-reports/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-cyhy-reports.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-cyhy-reports/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-cyhy-reports/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-cyhy-reports/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing
 [cisagov/cyhy-reports](https://github.com/cisagov/cyhy-reports).
@@ -75,6 +74,8 @@ None.
 
 - [cisagov/ansible-role-cyhy-core](https://github.com/cisagov/ansible-role-cyhy-core)
 - [cisagov/ansible-role-ncats-webd](https://github.com/cisagov/ansible-role-ncats-webd)
+- [cisagov/ansible-role-pip](https://github.com/cisagov/ansible-role-pip)
+- [cisagov/ansible-role-python](https://github.com/cisagov/ansible-role-python)
 
 ## Example Playbook ##
 
@@ -84,8 +85,10 @@ Here's how to use it in a playbook:
 - hosts: all
   become: yes
   become_method: sudo
-  roles:
-    - cyhy_reports
+  tasks:
+    - name: Install cisagov/cyhy-reports
+      ansible.builtin.include_role:
+        name: cyhy_reports
 ```
 
 ## Contributing ##
