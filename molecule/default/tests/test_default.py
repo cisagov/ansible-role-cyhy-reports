@@ -67,4 +67,11 @@ def test_texmf_configuration(host):
     texmf_config_file = host.file(texmf_config_filename)
     assert texmf_config_file.exists
     assert texmf_config_file.is_file
-    assert texmf_config_file.contains(r"buf_size=\d+")
+    # Note that File.contains() does not use Python's re library but
+    # instead runs grep behind the scenes:
+    # https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
+    #
+    # Therefore the regex string here must be able to be passed to
+    # grep without any quotes around it.  This is the reason I do not
+    # use an r-string and use two backslashes before the plus.
+    assert texmf_config_file.contains("buf_size=[[:digit:]]\\+")
