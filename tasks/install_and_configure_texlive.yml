@@ -14,4 +14,4 @@
     mode: 0644
     owner: root
     src: buffer_size.cnf.j2
-  notify: Ensure that any texmf config changes take effect
+  notify: "cyhy_reports : Ensure that any texmf config changes take effect"

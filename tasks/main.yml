@@ -75,4 +75,4 @@
   delegate_to: "{{ inventory_hostname }}"
   register: sync_output
   notify:
-    - Install the cyhy-reports fonts
+    - "cyy_reports : Install the cyhy-reports fonts"
