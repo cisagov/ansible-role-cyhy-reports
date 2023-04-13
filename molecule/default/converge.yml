@@ -4,4 +4,4 @@
   tasks:
     - name: Include ansible-role-cyhy-reports
       ansible.builtin.include_role:
-        name: ansible-role-cyhy-reports
+        name: cyhy_reports
