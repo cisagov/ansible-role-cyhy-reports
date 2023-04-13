@@ -1,6 +1,9 @@
 ---
 - src: https://github.com/cisagov/ansible-role-cyhy-core
   name: cyhy_core
+- src: https://github.com/cisagov/ansible-role-cyhy-reports
+  name: cyhy_reports
+  version: improvement/increase-texmf-buffer-size
 - src: https://github.com/cisagov/ansible-role-ncats-webd
   name: ncats_webd
 - src: https://github.com/cisagov/ansible-role-pip
