@@ -61,14 +61,9 @@ None.
 
 ## Role Variables ##
 
-None.
-
-<!--
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| optional_variable | Describe its purpose. | `default_value` | No |
-| required_variable | Describe its purpose. | n/a | Yes |
--->
+| texmf_buffer_size | The value to use for the texmf buffer size. | `200000` | No |
 
 ## Dependencies ##
 
