@@ -62,9 +62,18 @@ def test_files(host, f):
 
 
 def test_texmf_configuration(host):
-    """Test that the texmf configuration was not modified."""
+    """Test that the texmf configuration was modified as expected."""
     texmf_buf_size_cnf = host.file(CNF_FOR_BUFFER_SIZE)
-    assert texmf_buf_size_cnf.exists is False
+    assert texmf_buf_size_cnf.exists
+    assert texmf_buf_size_cnf.is_file
+    # Note that File.contains() does not use Python's re library but
+    # instead runs grep behind the scenes:
+    # https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
+    #
+    # Therefore the regex string here must be able to be passed to
+    # grep without any quotes around it.  This is the reason I do not
+    # use an r-string and use two backslashes before the plus.
+    assert texmf_buf_size_cnf.contains("buf_size=[[:digit:]]\\+")
 
     cmd = host.run("kpsewhich texmf.cnf")
     assert cmd.rc == 0
@@ -79,4 +88,4 @@ def test_texmf_configuration(host):
     # Therefore the regex string here must be able to be passed to
     # grep without any quotes around it.  This is the reason I do not
     # use an r-string and use two backslashes before the plus.
-    assert texmf_config_file.contains("buf_size=[[:digit:]]\\+") is False
+    assert texmf_config_file.contains("buf_size=[[:digit:]]\\+")

@@ -63,7 +63,7 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| texmf_buffer_size | The value to use for the texmf buffer size. | `200000` | No |
+| texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
 
 ## Dependencies ##
 
