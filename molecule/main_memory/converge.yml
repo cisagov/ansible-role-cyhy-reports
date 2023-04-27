@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include ansible-role-cyhy-reports
+      ansible.builtin.include_role:
+        name: ansible-role-cyhy-reports
+      vars:
+        texmf_main_memory: 10000000

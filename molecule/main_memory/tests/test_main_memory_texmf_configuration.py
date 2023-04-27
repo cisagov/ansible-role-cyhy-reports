@@ -1,4 +1,4 @@
-"""Module containing the texmf configuration tests for the buffer_size scenario."""
+"""Module containing the texmf configuration tests for the main_memory scenario."""
 
 # Standard Python Libraries
 import os
@@ -16,17 +16,17 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 # instead runs grep behind the scenes:
 # https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
 #
-# Therefore the regex string values for "contents" must be able to be passed to
+# Therefore, the regex string values for "contents" must be able to be passed to
 # grep without any quotes around it.  This is the reason I do not
 # use an r-string and use two backslashes before the plus.
 @pytest.mark.parametrize(
     "file,contents",
     [
-        ("/etc/texmf/texmf.d/99buffer_size.cnf", "buf_size=[[:digit:]]\\+"),
+        ("/etc/texmf/texmf.d/99main_memory.cnf", "main_memory=[[:digit:]]\\+"),
     ],
 )
 def test_texmf_configuration_exists(file, contents, host, texmf_config_file):
-    """Test that the texmf configuration was modified as expected."""
+    """Test that the texmf configuration has the configured options as expected."""
     custom_texmf_cnf = host.file(file)
     assert custom_texmf_cnf.exists
     assert custom_texmf_cnf.is_file
@@ -45,7 +45,7 @@ def test_texmf_configuration_exists(file, contents, host, texmf_config_file):
 @pytest.mark.parametrize(
     "file,contents",
     [
-        ("/etc/texmf/texmf.d/99main_memory.cnf", "main_memory=[[:digit:]]\\+"),
+        ("/etc/texmf/texmf.d/99buffer_size.cnf", "buf_size=[[:digit:]]\\+"),
     ],
 )
 def test_texmf_configuration_absent(file, contents, host, texmf_config_file):

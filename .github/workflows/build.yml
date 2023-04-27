@@ -106,6 +106,7 @@ jobs:
         scenario:
           - buffer_size
           - default
+          - main_memory
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

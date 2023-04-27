@@ -16,3 +16,15 @@
     src: buffer_size.cnf.j2
   notify: Ensure that any texmf config changes take effect
   when: texmf_buffer_size | default(false)
+
+- name: Create config file to specify the size of texmf main memory
+  ansible.builtin.template:
+    dest: /etc/texmf/texmf.d/99main_memory.cnf
+    group: root
+    mode: 0644
+    owner: root
+    src: main_memory.cnf.j2
+  notify:
+    - Ensure that any texmf config changes take effect
+    - Ensure that any format files have the latest changes
+  when: texmf_main_memory | default(false)

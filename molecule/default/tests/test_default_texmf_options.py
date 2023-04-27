@@ -23,6 +23,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     "file,contents",
     [
         ("/etc/texmf/texmf.d/99buffer_size.cnf", "buf_size=[[:digit:]]\\+"),
+        ("/etc/texmf/texmf.d/99main_memory.cnf", "main_memory=[[:digit:]]\\+"),
     ],
 )
 def test_texmf_configuration(file, contents, host, texmf_config_file):
