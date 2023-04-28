@@ -11,8 +11,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ["MOLECULE_INVENTORY_FILE"]
 ).get_hosts("all")
 
-CNF_FOR_BUFFER_SIZE = "/etc/texmf/texmf.d/99buffer_size.cnf"
-
 
 @pytest.mark.parametrize(
     "pkg",
@@ -61,22 +59,22 @@ def test_files(host, f):
     assert host.file(f).exists
 
 
-def test_texmf_configuration(host):
+# Note that File.contains() does not use Python's re library but
+# instead runs grep behind the scenes:
+# https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
+#
+# Therefore the regex string values for "contents" must be able to be passed to
+# grep without any quotes around it.  This is the reason I do not
+# use an r-string and use two backslashes before the plus.
+@pytest.mark.parametrize(
+    "file,contents",
+    [
+        ("/etc/texmf/texmf.d/99buffer_size.cnf", "buf_size=[[:digit:]]\\+"),
+    ],
+)
+def test_texmf_configuration(file, contents, host, texmf_config_file):
     """Test that the texmf configuration was not modified."""
-    texmf_buf_size_cnf = host.file(CNF_FOR_BUFFER_SIZE)
-    assert texmf_buf_size_cnf.exists is False
+    custom_texmf_cnf = host.file(file)
+    assert custom_texmf_cnf.exists is False
 
-    cmd = host.run("kpsewhich texmf.cnf")
-    assert cmd.rc == 0
-    texmf_config_filename = cmd.stdout.strip()
-    texmf_config_file = host.file(texmf_config_filename)
-    assert texmf_config_file.exists
-    assert texmf_config_file.is_file
-    # Note that File.contains() does not use Python's re library but
-    # instead runs grep behind the scenes:
-    # https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
-    #
-    # Therefore the regex string here must be able to be passed to
-    # grep without any quotes around it.  This is the reason I do not
-    # use an r-string and use two backslashes before the plus.
-    assert texmf_config_file.contains("buf_size=[[:digit:]]\\+") is False
+    assert texmf_config_file.contains(contents) is False
