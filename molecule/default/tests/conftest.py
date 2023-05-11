@@ -6,6 +6,12 @@ https://docs.pytest.org/en/latest/writing_plugins.html#conftest-py-plugins
 import pytest
 
 
+def pytest_configure(config):
+    """Set up the values to be shared in the pytest cache."""
+    config.stash["buffer_size_cnf"] = "/etc/texmf/texmf.d/99buffer_size.cnf"
+    config.stash["main_memory_cnf"] = "/etc/texmf/texmf.d/99main_memory.cnf"
+
+
 @pytest.fixture(scope="module")
 def texmf_config_file(host):
     """Retrieve the texmf configuration file."""

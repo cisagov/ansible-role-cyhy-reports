@@ -20,14 +20,18 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 # grep without any quotes around it.  This is the reason I do not
 # use an r-string and use two backslashes before the plus.
 @pytest.mark.parametrize(
-    "file,contents",
+    "file_key,contents",
     [
-        ("/etc/texmf/texmf.d/99buffer_size.cnf", "buf_size=[[:digit:]]\\+"),
+        ("buffer_size_cnf", "buf_size=[[:digit:]]\\+"),
     ],
 )
-def test_texmf_configuration_exists(file, contents, host, texmf_config_file):
+def test_texmf_configuration_exists(
+    file_key, contents, host, request, texmf_config_file
+):
     """Test that the texmf configuration was modified as expected."""
-    custom_texmf_cnf = host.file(file)
+    target_file = request.config.stash.get(file_key, None)
+    assert target_file is not None
+    custom_texmf_cnf = host.file(target_file)
     assert custom_texmf_cnf.exists
     assert custom_texmf_cnf.is_file
     assert custom_texmf_cnf.contains(contents)
@@ -43,14 +47,18 @@ def test_texmf_configuration_exists(file, contents, host, texmf_config_file):
 # grep without any quotes around it.  This is the reason I do not
 # use an r-string and use two backslashes before the plus.
 @pytest.mark.parametrize(
-    "file,contents",
+    "file_key,contents",
     [
-        ("/etc/texmf/texmf.d/99main_memory.cnf", "main_memory=[[:digit:]]\\+"),
+        ("main_memory_cnf", "main_memory=[[:digit:]]\\+"),
     ],
 )
-def test_texmf_configuration_absent(file, contents, host, texmf_config_file):
+def test_texmf_configuration_absent(
+    file_key, contents, host, request, texmf_config_file
+):
     """Test that the texmf configuration is missing unconfigured options as expected."""
-    custom_texmf_cnf = host.file(file)
+    target_file = request.config.stash.get(file_key, None)
+    assert target_file is not None
+    custom_texmf_cnf = host.file(target_file)
     assert custom_texmf_cnf.exists is False
 
     assert texmf_config_file.contains(contents) is False
