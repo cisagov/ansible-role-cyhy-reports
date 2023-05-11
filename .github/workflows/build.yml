@@ -104,6 +104,7 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
+          - all_options
           - buffer_size
           - default
           - main_memory
