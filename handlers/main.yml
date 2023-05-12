@@ -6,3 +6,7 @@
 - name: Ensure that any texmf config changes take effect
   ansible.builtin.command:
     cmd: /usr/sbin/update-texmf
+
+- name: Ensure that any format files have the latest changes
+  ansible.builtin.command:
+    cmd: /usr/bin/fmtutil-sys --all

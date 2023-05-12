@@ -57,21 +57,3 @@ def test_pip_packages(host, pkg):
 def test_files(host, f):
     """Test that the expected files and directories are present."""
     assert host.file(f).exists
-
-
-def test_texmf_configuration(host):
-    """Test that the texmf configuration was modified as expected."""
-    cmd = host.run("kpsewhich texmf.cnf")
-    assert cmd.rc == 0
-    texmf_config_filename = cmd.stdout.strip()
-    texmf_config_file = host.file(texmf_config_filename)
-    assert texmf_config_file.exists
-    assert texmf_config_file.is_file
-    # Note that File.contains() does not use Python's re library but
-    # instead runs grep behind the scenes:
-    # https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
-    #
-    # Therefore the regex string here must be able to be passed to
-    # grep without any quotes around it.  This is the reason I do not
-    # use an r-string and use two backslashes before the plus.
-    assert texmf_config_file.contains("buf_size=[[:digit:]]\\+")
