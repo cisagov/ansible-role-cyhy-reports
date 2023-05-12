@@ -61,6 +61,12 @@ None.
 
 ## Role Variables ##
 
+> **Note**
+> Any variables that are not required, but have no default value, are used to
+> control the creation of optional resources. They [use a filter to default to
+> `false`](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_filters.html#providing-default-values)
+> for use in conditionals so that unneeded resources are not created.
+
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
 | texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
