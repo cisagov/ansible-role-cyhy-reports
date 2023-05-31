@@ -67,10 +67,10 @@
 
 - name: Copy the reporting and notification scripts
   ansible.builtin.copy:
-    dest: "/var/cyhy/reports/{{ item }}"
+    dest: /var/cyhy/reports/{{ item }}
     mode: 0755
     remote_src: yes
-    src: "/var/local/cyhy/reports/extras/{{ item }}"
+    src: /var/local/cyhy/reports/extras/{{ item }}
   loop:
     - create_send_notifications.py
     - create_snapshots_reports_scorecard.py
