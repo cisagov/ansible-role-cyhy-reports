@@ -49,7 +49,9 @@
 
 - name: Create the directories we need for cyhy-reports
   ansible.builtin.file:
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     mode: 0755
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     path: "{{ item }}"
     state: directory
   loop:
@@ -62,13 +64,17 @@
     dest: /var/local/cyhy/reports
     extra_opts:
       - "--strip-components=1"
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     remote_src: yes
     src: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
 
 - name: Copy the reporting and notification scripts
   ansible.builtin.copy:
     dest: /var/cyhy/reports/{{ item }}
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     mode: 0755
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     remote_src: yes
     src: /var/local/cyhy/reports/extras/{{ item }}
   loop:
