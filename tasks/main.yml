@@ -89,6 +89,8 @@
 - name: Copy the cyhy-reports fonts
   ansible.posix.synchronize:
     dest: /usr/local/share/fonts
+    group: false
+    owner: false
     src: /var/local/cyhy/reports/cyhy_report/assets/Fonts/
   delegate_to: "{{ inventory_hostname }}"
   register: sync_output
