@@ -9,4 +9,5 @@
       ansible.builtin.include_role: # noqa var-naming[no-role-prefix]
         name: ansible-role-cyhy-reports
       vars:
+        cyhy_reports_maxmind_license_key: "{{ lookup('aws_ssm', '/cyhy/core/geoip/license_key', region='us-east-1') }}"
         cyhy_reports_texmf_main_memory: 10000000
