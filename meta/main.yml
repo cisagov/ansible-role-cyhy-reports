@@ -1,13 +1,13 @@
 ---
 dependencies:
-  - src: https://github.com/cisagov/ansible-role-ncats-webd
-    name: ncats_webd
-  - src: https://github.com/cisagov/ansible-role-pip
-    name: pip
+  - name: ncats_webd
+    src: https://github.com/cisagov/ansible-role-ncats-webd
+  - name: pip
+    src: https://github.com/cisagov/ansible-role-pip
     vars:
       pip_install_pip2: true
-  - src: https://github.com/cisagov/ansible-role-python
-    name: python
+  - name: python
+    src: https://github.com/cisagov/ansible-role-python
     vars:
       python_install_python2: true
 galaxy_info:
