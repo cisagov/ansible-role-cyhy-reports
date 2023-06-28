@@ -69,8 +69,8 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
-| texmf_main_memory | The value to use for the texmf main memory size. | n/a | No |
+| cyhy_reports_texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
+| cyhy_reports_texmf_main_memory | The value to use for the texmf main memory size. | n/a | No |
 
 ## Dependencies ##
 

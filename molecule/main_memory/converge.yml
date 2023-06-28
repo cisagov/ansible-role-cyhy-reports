@@ -6,4 +6,4 @@
       ansible.builtin.include_role:
         name: ansible-role-cyhy-reports
       vars:
-        texmf_main_memory: 10000000
+        cyhy_reports_texmf_main_memory: 10000000
