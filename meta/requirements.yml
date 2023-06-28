@@ -1,3 +1,4 @@
 ---
 - name: cyhy_core
   src: https://github.com/cisagov/ansible-role-cyhy-core
+  version: lineage/skeleton
