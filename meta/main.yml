@@ -7,11 +7,11 @@ dependencies:
   - src: https://github.com/cisagov/ansible-role-pip
     name: pip
     vars:
-      install_pip2: true
+      pip_install_pip2: true
   - src: https://github.com/cisagov/ansible-role-python
     name: python
     vars:
-      install_python2: true
+      python_install_python2: true
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments
