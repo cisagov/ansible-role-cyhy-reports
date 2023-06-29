@@ -2,11 +2,20 @@
 - name: Install the cyhy-reports fonts
   ansible.builtin.command:
     cmd: /usr/bin/fc-cache --system-only
+  changed_when: fonts.rc == 0
+  failed_when: fonts.rc != 0
+  register: fonts
 
 - name: Ensure that any texmf config changes take effect
   ansible.builtin.command:
     cmd: /usr/sbin/update-texmf
+  changed_when: config.rc == 0
+  failed_when: config.rc != 0
+  register: config
 
 - name: Ensure that any format files have the latest changes
   ansible.builtin.command:
     cmd: /usr/bin/fmtutil-sys --all
+  changed_when: format.rc == 0
+  failed_when: format.rc != 0
+  register: format

@@ -1,11 +1,11 @@
 ---
-- src: https://github.com/cisagov/ansible-role-cyhy-core
-  name: cyhy_core
-- src: https://github.com/cisagov/ansible-role-ncats-webd
-  name: ncats_webd
-- src: https://github.com/cisagov/ansible-role-pip
-  name: pip
-- src: https://github.com/cisagov/ansible-role-python
-  name: python
-- src: https://github.com/cisagov/ansible-role-upgrade
-  name: upgrade
+- name: cyhy_core
+  src: https://github.com/cisagov/ansible-role-cyhy-core
+- name: ncats_webd
+  src: https://github.com/cisagov/ansible-role-ncats-webd
+- name: pip
+  src: https://github.com/cisagov/ansible-role-pip
+- name: python
+  src: https://github.com/cisagov/ansible-role-python
+- name: upgrade
+  src: https://github.com/cisagov/ansible-role-upgrade

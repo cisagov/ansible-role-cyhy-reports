@@ -69,8 +69,9 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
-| texmf_main_memory | The value to use for the texmf main memory size. | n/a | No |
+| cyhy_reports_maxmind_license_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
+| cyhy_reports_texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
+| cyhy_reports_texmf_main_memory | The value to use for the texmf main memory size. | n/a | No |
 
 ## Dependencies ##
 
@@ -113,4 +114,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-Shane Frasier - <jeremy.frasier@trio.dhs.gov>
+Shane Frasier - <jeremy.frasier@gwe.cisa.dhs.gov>

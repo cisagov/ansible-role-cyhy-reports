@@ -1,4 +1,16 @@
 ---
+- name: Install cisagov/cyhy-core
+  ansible.builtin.include_role:
+    name: cyhy_core
+  vars:
+    cyhy_core_maxmind_license_key: "{{ cyhy_reports_maxmind_license_key }}"
+
+- name: Install cisagov/ncats-webd
+  ansible.builtin.include_role:
+    name: ncats_webd
+  vars:
+    ncats_webd_maxmind_license_key: "{{ cyhy_reports_maxmind_license_key }}"
+
 - name: Install and configure TeX Live
   ansible.builtin.include_tasks: install_and_configure_texlive.yml
 

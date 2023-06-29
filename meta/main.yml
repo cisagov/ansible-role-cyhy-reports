@@ -1,17 +1,13 @@
 ---
 dependencies:
-  - src: https://github.com/cisagov/ansible-role-cyhy-core
-    name: cyhy_core
-  - src: https://github.com/cisagov/ansible-role-ncats-webd
-    name: ncats_webd
-  - src: https://github.com/cisagov/ansible-role-pip
-    name: pip
+  - name: pip
+    src: https://github.com/cisagov/ansible-role-pip
     vars:
-      install_pip2: true
-  - src: https://github.com/cisagov/ansible-role-python
-    name: python
+      pip_install_pip2: true
+  - name: python
+    src: https://github.com/cisagov/ansible-role-python
     vars:
-      install_python2: true
+      python_install_python2: true
 galaxy_info:
   author: Shane Frasier
   company: CISA Cyber Assessments
@@ -33,7 +29,4 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-    - name: Ubuntu
-      versions:
-        - bionic
   role_name: cyhy_reports
