@@ -1,7 +1,6 @@
 ---
 - name: cyhy_core
   src: https://github.com/cisagov/ansible-role-cyhy-core
-  version: lineage/skeleton
 - name: ncats_webd
   src: https://github.com/cisagov/ansible-role-ncats-webd
   version: lineage/skeleton
