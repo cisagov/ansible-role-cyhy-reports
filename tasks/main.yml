@@ -28,15 +28,15 @@
 - name: Install cyhy-reports dependencies
   ansible.builtin.package:
     name:
-      - python-mpltoolkits.basemap
-      - python-numpy
       - python-dateutil
+      - python-docopt
+      - python-mpltoolkits.basemap
       - python-netaddr
+      - python-numpy
       - python-pandas
       - python-progressbar
-      - python-docopt
-      - python-unicodecsv
       - python-pypdf2
+      - python-unicodecsv
 
 - name: Install the cyhy-reports package
   ansible.builtin.pip:
@@ -49,7 +49,9 @@
 
 - name: Create the directories we need for cyhy-reports
   ansible.builtin.file:
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     mode: 0755
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     path: "{{ item }}"
     state: directory
   loop:
@@ -59,21 +61,25 @@
 
 - name: Download and untar the cyhy-reports tarball
   ansible.builtin.unarchive:
-    src: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
     dest: /var/local/cyhy/reports
-    remote_src: yes
     extra_opts:
       - "--strip-components=1"
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
+    remote_src: yes
+    src: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
 
 - name: Copy the reporting and notification scripts
   ansible.builtin.copy:
-    src: "/var/local/cyhy/reports/extras/{{ item }}"
-    dest: "/var/cyhy/reports/{{ item }}"
+    dest: /var/cyhy/reports/{{ item }}
+    group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     mode: 0755
+    owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     remote_src: yes
+    src: /var/local/cyhy/reports/extras/{{ item }}
   loop:
-    - create_snapshots_reports_scorecard.py
     - create_send_notifications.py
+    - create_snapshots_reports_scorecard.py
 
 # rsync is required by the synchronize module
 - name: Install rsync
@@ -82,8 +88,10 @@
 
 - name: Copy the cyhy-reports fonts
   ansible.posix.synchronize:
-    src: /var/local/cyhy/reports/cyhy_report/assets/Fonts/
     dest: /usr/local/share/fonts
+    group: false
+    owner: false
+    src: /var/local/cyhy/reports/cyhy_report/assets/Fonts/
   delegate_to: "{{ inventory_hostname }}"
   register: sync_output
   notify:

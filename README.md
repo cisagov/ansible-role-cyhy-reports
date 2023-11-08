@@ -69,6 +69,8 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
+| cyhy_reports_file_owner_group | The name of the group that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
+| cyhy_reports_file_owner_username | The name of the user that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy_reports_maxmind_license_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
 | cyhy_reports_texmf_buffer_size | The value to use for the texmf buffer size. | n/a | No |
 | cyhy_reports_texmf_main_memory | The value to use for the texmf main memory size. | n/a | No |
