@@ -66,7 +66,7 @@
       - "--strip-components=1"
     group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
-    remote_src: yes
+    remote_src: true
     src: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
 
 - name: Copy the reporting and notification scripts
@@ -75,7 +75,7 @@
     group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
     mode: 0755
     owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
-    remote_src: yes
+    remote_src: true
     src: /var/local/cyhy/reports/extras/{{ item }}
   loop:
     - create_send_notifications.py
