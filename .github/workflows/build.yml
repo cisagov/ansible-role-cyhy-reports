@@ -182,17 +182,20 @@ jobs:
           - amd64
           - arm64
         platform:
-          - amazonlinux2023-systemd
+          # cyhy-reports is still Python 2 and with distributions
+          # ending support for Python 2 we can only support a limited
+          # number of platforms.
+          # - amazonlinux2023-systemd
           - debian10-systemd
-          - debian11-systemd
-          - debian12-systemd
-          - debian13-systemd
-          - fedora39-systemd
-          - fedora40-systemd
-          - kali-systemd
-          - ubuntu-20-systemd
-          - ubuntu-22-systemd
-          - ubuntu-24-systemd
+          # - debian11-systemd
+          # - debian12-systemd
+          # - debian13-systemd
+          # - fedora39-systemd
+          # - fedora40-systemd
+          # - kali-systemd
+          # - ubuntu-20-systemd
+          # - ubuntu-22-systemd
+          # - ubuntu-24-systemd
         scenario:
           - all_options
           - buffer_size
