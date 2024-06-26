@@ -38,6 +38,19 @@
       - python-pypdf2
       - python-unicodecsv
 
+# The install of https://github.com/cisagov/cyhy-reports fails on
+# ARM64 without these dependencies.
+- name: Install ARM64-specific dependencies for cyhy-reports
+  ansible.builtin.package:
+    name:
+      # This package is called libfreetype-dev on all releases after
+      # Buster.
+      - libfreetype6-dev
+      - libpng-dev
+      - pkgconf
+  when:
+    ansible_architecture == "aarch64"
+
 - name: Install the cyhy-reports package
   ansible.builtin.pip:
     executable: /usr/bin/pip2
