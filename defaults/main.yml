@@ -1,0 +1,4 @@
+---
+# This mirrors the defaults in cisagov/ansible-role-cyhy-core and
+# cisagov/ansible-role-geoip2
+cyhy_reports_install_geoipupdate: false

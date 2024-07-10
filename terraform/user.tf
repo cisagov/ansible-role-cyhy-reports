@@ -10,6 +10,9 @@ module "user" {
     aws.images-staging-ssm                 = aws
   }
 
-  entity         = "ansible-role-cyhy-reports"
-  ssm_parameters = ["/cyhy/core/geoip/license_key"]
+  entity = "ansible-role-cyhy-reports"
+  ssm_parameters = [
+    "/cyhy/core/geoip/account_id",
+    "/cyhy/core/geoip/license_key",
+  ]
 }

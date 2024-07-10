@@ -3,12 +3,17 @@
   ansible.builtin.include_role:
     name: cyhy_core
   vars:
+    cyhy_core_install_geoipupdate: "{{ cyhy_reports_install_geoipupdate }}"
+    cyhy_core_maxmind_account_id: "{{ cyhy_reports_maxmind_account_id }}"
     cyhy_core_maxmind_license_key: "{{ cyhy_reports_maxmind_license_key }}"
 
 - name: Install cisagov/ncats-webd
   ansible.builtin.include_role:
     name: ncats_webd
   vars:
+    # Since MaxMind download and set up is already done in the
+    # cisagov/cyhy-core role, we just need to pass the required variables.
+    ncats_webd_maxmind_account_id: "{{ cyhy_reports_maxmind_account_id }}"
     ncats_webd_maxmind_license_key: "{{ cyhy_reports_maxmind_license_key }}"
 
 - name: Install and configure TeX Live
