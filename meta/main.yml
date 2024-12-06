@@ -34,5 +34,21 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
+    #     - bullseye
+    #     - bookworm
+    #     - trixie
+    # - name: Fedora
+    #   versions:
+    #     - "39"
+    #     - "40"
+    #     - "41"
+    # - name: Kali
+    #   versions:
+    #     - "2023"
+    # - name: Ubuntu
+    #   versions:
+    #     - focal
+    #     - jammy
+    #     - noble
   role_name: cyhy_reports
   standalone: true
