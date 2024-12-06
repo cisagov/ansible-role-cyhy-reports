@@ -14,7 +14,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 # Note that File.contains() does not use Python's re library but
 # instead runs grep behind the scenes:
-# https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
+# https://github.com/pytest-dev/pytest-testinfra/blob/e1eb9c11beb8042ae7c7a0f0ef3a0160eaa7c3cd/testinfra/modules/file.py#L130-L135
 #
 # Therefore, the regex string values for "contents" must be able to be passed to
 # grep without any quotes around it.  This is the reason I do not
@@ -41,7 +41,7 @@ def test_texmf_configuration_exists(
 
 # Note that File.contains() does not use Python's re library but
 # instead runs grep behind the scenes:
-# https://github.com/pytest-dev/pytest-testinfra/blob/main/testinfra/modules/file.py#L118-L119
+# https://github.com/pytest-dev/pytest-testinfra/blob/e1eb9c11beb8042ae7c7a0f0ef3a0160eaa7c3cd/testinfra/modules/file.py#L130-L135
 #
 # Therefore, the regex string values for "contents" must be able to be passed to
 # grep without any quotes around it.  This is the reason I do not
