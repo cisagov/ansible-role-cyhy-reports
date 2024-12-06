@@ -24,7 +24,7 @@
 #
 
 # The Python dependencies are from here:
-# https://github.com/cisagov/cyhy-reports/blob/develop/setup.py#L50-L71
+# https://github.com/cisagov/cyhy-reports/blob/a950c6f7f3aa6d1d3d8d7804777405a28d4d82cc/setup.py#L54-L75
 #
 # I'd prefer to install the Python dependencies via pip, but then I
 # get errors about modules being built with a different version of
