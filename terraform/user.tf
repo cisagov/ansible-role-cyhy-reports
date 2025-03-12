@@ -3,11 +3,9 @@ module "user" {
   source = "github.com/cisagov/molecule-iam-user-tf-module"
 
   providers = {
-    aws                                    = aws
-    aws.images-production-provisionaccount = aws
-    aws.images-staging-provisionaccount    = aws
-    aws.images-production-ssm              = aws
-    aws.images-staging-ssm                 = aws
+    aws                         = aws.users
+    aws.images-provisionaccount = aws.images_provisionaccount
+    aws.images-ssm              = aws.images_ssm
   }
 
   entity = "ansible-role-cyhy-reports"
