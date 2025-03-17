@@ -210,10 +210,12 @@ jobs:
           - default
           - main_memory
     steps:
-      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
-        with:
-          # Uses the organization variable unless overridden
-          config: ${{ vars.ACTIONS_PERMISSIONS_CONFIG }}
+      # The tests often fail with this proxy in place, so it makes
+      # sense to comment it out.
+      # - uses: GitHubSecurityLab/actions-permissions/monitor@v1
+      #   with:
+      #     # Uses the organization variable unless overridden
+      #     config: ${{ vars.ACTIONS_PERMISSIONS_CONFIG }}
       - id: harden-runner
         name: Harden the runner
         uses: step-security/harden-runner@v2
@@ -279,12 +281,7 @@ jobs:
           sudo apt-get install apparmor-utils
           sudo aa-disable /usr/sbin/unix_chkpwd
         if: ${{ startsWith(matrix.platform, 'fedora') }}
-      - # This is an example of how to pass GHA secrets to Molecule
-        # via an environment variable.  See also
-        # molecule/default/converge.yml in this repository.
-        # env:
-        #   THIRD_PARTY_BUCKET: ${{ secrets.THIRD_PARTY_BUCKET }}
-        name: Run molecule tests
+      - name: Run molecule tests
         run: >-
           molecule test
           --platform-name ${{ matrix.platform }}-${{ matrix.architecture }}
