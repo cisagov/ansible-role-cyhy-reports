@@ -68,7 +68,7 @@
 - name: Create the directories we need for cyhy-reports
   ansible.builtin.file:
     group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     path: "{{ item }}"
     state: directory
@@ -91,7 +91,7 @@
   ansible.builtin.copy:
     dest: /var/cyhy/reports/{{ item }}
     group: "{{ cyhy_reports_file_owner_group | default(omit) }}"
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     owner: "{{ cyhy_reports_file_owner_username | default(omit) }}"
     remote_src: true
     src: /var/local/cyhy/reports/extras/{{ item }}
