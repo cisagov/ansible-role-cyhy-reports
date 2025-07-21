@@ -10,6 +10,8 @@ collections:
 roles:
   - name: cyhy_core
     src: https://github.com/cisagov/ansible-role-cyhy-core
+  - name: debian_archive
+    src: https://github.com/cisagov/ansible-role-debian-archive
   - name: ncats_webd
     src: https://github.com/cisagov/ansible-role-ncats-webd
   - name: pip
