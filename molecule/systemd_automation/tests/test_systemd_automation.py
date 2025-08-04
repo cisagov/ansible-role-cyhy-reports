@@ -39,3 +39,16 @@ def test_services(host, svc):
     """Test that the expected units were enabled as intended."""
     svc = host.service(svc)
     assert svc.is_enabled
+
+
+def test_timer_contents(host):
+    """Test that the contents of the timer unit were modified as expected."""
+    f = host.file("/etc/systemd/system/run-cyhy-reports.timer")
+    assert f.contains("^OnCalendar=Tue 01:23:45$")
+
+
+def test_script_contents(host):
+    """Test that the contents of the script were modified as expected."""
+    f = host.file("/usr/local/sbin/run-cyhy-reports.sh")
+    assert f.contains('^CYHY_DATA_MOUNTPOINT="/the/path"')
+    assert f.contains('^CYHY_DATA_MAX_USAGE="95"')
