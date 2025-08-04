@@ -1,4 +1,9 @@
 ---
+# Whether or not to create and enable a systemd timer to automatically
+# generate CyHy reports on a schedule.  See also
+# cyhy_reports_schedule.
+cyhy_reports_automation: false
+
 # The schedule according to which CyHy reporting is to be run.  The
 # format is described in the systemd.time man page.
 cyhy_reports_schedule: Sun 05:00:00

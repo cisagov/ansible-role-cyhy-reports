@@ -113,12 +113,13 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
+| cyhy\_reports\_automation | Whether or not to create and enable a `systemd` timer to automatically generate CyHy reports on a schedule.  See also `cyhy_reports_schedule`. | `false` | No |
 | cyhy\_reports\_file\_owner\_group | The name of the group that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_file\_owner\_username | The name of the user that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
 | cyhy\_reports\_maxmind\_account\_id | The MaxMind account ID for access to a GeoIP2 database subscription. | n/a | Yes |
 | cyhy\_reports\_maxmind\_license\_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
-| cyhy\_reports\_schedule | The schedule at which CyHy reporting is to be run.  The format is described in the `man` page for `systemd.time`. | `Sun 05:00:00` | No |
+| cyhy\_reports\_schedule | The schedule at which CyHy reporting is to be run.  The format is described in the `man` page for `systemd.time`.  This value is used if and only if  `cyhy_reports_systemd` is `true`. | `Sun 05:00:00` | No |
 | cyhy\_reports\_texmf\_buffer\_size | The value to use for the texmf buffer size. | n/a | No |
 | cyhy\_reports\_texmf\_main\_memory | The value to use for the texmf main memory size. | n/a | No |
 | cyhy\_reports\_version | The version of cisagov/cyhy-reports to install; must be a valid git reference. | `v1.1.0` | No |

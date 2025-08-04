@@ -46,12 +46,6 @@ def test_pip_packages(host, pkg):
 @pytest.mark.parametrize(
     "f",
     [
-        # The systemd service unit for generating CyHy reports
-        "/etc/systemd/system/run-cyhy-reports.service",
-        # The systemd timer unit for generating CyHy reports
-        "/etc/systemd/system/run-cyhy-reports.timer",
-        # The shell script for generating CyHy reports
-        "/usr/local/sbin/run-cyhy-reports.sh",
         "/usr/local/share/fonts",
         "/var/local/cyhy/reports",
         "/var/cyhy/reports",
@@ -63,16 +57,3 @@ def test_pip_packages(host, pkg):
 def test_files(host, f):
     """Test that the expected files and directories are present."""
     assert host.file(f).exists
-
-
-@pytest.mark.parametrize(
-    "svc",
-    [
-        # The systemd timer unit for generating CyHy reports
-        "run-cyhy-reports.timer",
-    ],
-)
-def test_services(host, svc):
-    """Test that the expected units were enabled as intended."""
-    svc = host.service(svc)
-    assert svc.is_enabled

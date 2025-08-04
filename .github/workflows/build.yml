@@ -238,6 +238,7 @@ jobs:
           - buffer_size
           - default
           - main_memory
+          - systemd_automation
     steps:
       - name: Apply standard cisagov job preamble
         uses: cisagov/action-job-preamble@v1
