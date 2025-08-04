@@ -6,7 +6,7 @@ cyhy_reports_automation: false
 
 # The schedule according to which CyHy reporting is to be run.  The
 # format is described in the systemd.time man page.
-cyhy_reports_schedule: Sun 05:00:00
+cyhy_reports_schedule: Mon 05:00:00
 
 # This mirrors the defaults in cisagov/ansible-role-cyhy-core and
 # cisagov/ansible-role-geoip2
