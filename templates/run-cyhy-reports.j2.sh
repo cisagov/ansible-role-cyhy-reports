@@ -33,14 +33,17 @@ function check_disk_space {
   return $?
 }
 
+return_value=1
 if check_disk_space $CYHY_DATA_MOUNTPOINT $CYHY_DATA_MAX_USAGE; then
   echo Genertating Cyber Hygiene reports...
   cd $CYHY_DATA_MOUNTPOINT/..
   sudo --user=cyhy ./create_snapshots_reports_scorecard.py --no-dock cyhy scan \
-    2>&1 | /usr/bin/logger --tag cyhy-reports
+    2>&1 \
+    | /usr/bin/logger --tag cyhy-reports
+  return_value=$?
   cd "$OLDPWD"
-  return $?
 else
   echo Insufficient disk space at $CYHY_DATA_MOUNTPOINT to run Cyber Hygiene reports.
-  return 1
 fi
+
+exit $return_value
