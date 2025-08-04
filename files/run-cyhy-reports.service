@@ -1,0 +1,7 @@
+[Unit]
+Description=Generate CyHy reports.
+
+[Service]
+ExecStart=/usr/local/sbin/run-cyhy-reports.sh
+PrivateTmp=true
+Type=oneshot
