@@ -114,6 +114,8 @@ None.
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
 | cyhy\_reports\_automation | Whether or not to create and enable a `systemd` timer to automatically generate CyHy reports on a schedule.  See also `cyhy_reports_schedule`. | `false` | No |
+| cyhy\_reports\_data\_max\_usage | The maximum acceptable percentage for the disk usage of the volume attached to `cyhy\_reports\_data\_mountpoint`.  CyHy reporting will not proceed if the disk usage is greater than this percentage. | `90` | No |
+| cyhy\_reports\_data\_mountpoint | The path to the mountpoint that contains the CyHy reporting output. | `/var/cyhy/reports/output` | No |
 | cyhy\_reports\_file\_owner\_group | The name of the group that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_file\_owner\_username | The name of the user that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
