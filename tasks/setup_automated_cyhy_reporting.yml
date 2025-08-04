@@ -1,0 +1,30 @@
+---
+- name: >-
+    Install shell script to be run by systemd service that generates CyHy reports
+  ansible.builtin.template:
+    dest: /usr/local/sbin/run-cyhy-reports.sh
+    mode: u=rx,g=,o=
+    src: run-cyhy-reports.j2.sh
+
+- name: Copy systemd service to generate CyHy reports
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/run-cyhy-reports.service
+    mode: u=rx,g=,o=
+    src: run-cyhy-reports.service
+    # I'd like to validate the file here, but that can't be done
+    # cleanly.  See ansible/ansible#19243.
+    # validate: systemd-analyze verify %s
+
+- name: Copy systemd timer to generate CyHy reports
+  ansible.builtin.template:
+    dest: /etc/systemd/system/run-cyhy-reports.timer
+    mode: u=rx,g=,o=
+    src: run-cyhy-reports.j2.timer
+    # I'd like to validate the file here, but that can't be done
+    # cleanly.  See ansible/ansible#19243.
+    # validate: systemd-analyze verify %s
+
+- name: Enable the systemd timer
+  ansible.builtin.systemd_service:
+    enabled: true
+    name: run-cyhy-reports.timer
