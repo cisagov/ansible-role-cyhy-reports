@@ -42,7 +42,7 @@ description of how this code is intended to be used.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
-| tags | Tags to apply to all AWS resources created | `map(string)` | ```{ "Application": "skeleton-ansible-role-with-test-user testing", "Team": "VM Fusion - Development" }``` | no |
+| tags | Tags to apply to all AWS resources created | `map(string)` | ```{ "Application": "ansible-role-cyhy-reports testing", "Team": "VM Fusion - Development" }``` | no |
 | terraform\_state\_bucket | The name of the S3 bucket where Terraform state is stored. | `string` | n/a | yes |
 
 ## Outputs ##
