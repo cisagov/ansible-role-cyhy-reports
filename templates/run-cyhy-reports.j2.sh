@@ -19,7 +19,7 @@ CYHY_DATA_MAX_USAGE="{{ cyhy_reports_data_max_usage }}"
 # Returns:
 #   0: If the actual disk usage percentage is less than or equal to
 #   the specified maximum acceptable usage percentage
-#   1: Otherwisw
+#   1: Otherwise
 function check_disk_space {
   local mountpoint=$1
   local max_percent_usage=$2
