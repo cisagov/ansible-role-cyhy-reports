@@ -59,7 +59,8 @@
 - name: Install the cyhy-reports package
   ansible.builtin.pip:
     executable: /usr/bin/pip2
-    name: https://api.github.com/repos/cisagov/cyhy-reports/tarball/develop
+    name: https://api.github.com/repos/cisagov/cyhy-reports/tarball/{{
+      cyhy_reports_version }}
 
 #
 # Download the cyhy-reports code for some extra content we need
