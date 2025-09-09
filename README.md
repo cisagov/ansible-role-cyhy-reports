@@ -120,7 +120,7 @@ None.
 | cyhy\_reports\_maxmind\_license\_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
 | cyhy\_reports\_texmf\_buffer\_size | The value to use for the texmf buffer size. | n/a | No |
 | cyhy\_reports\_texmf\_main\_memory | The value to use for the texmf main memory size. | n/a | No |
-| cyhy\_reports\_version | The version of cisagov/cyhy-reports to install. | `v1.1.0` | No |
+| cyhy\_reports\_version | The version of cisagov/cyhy-reports to install; must be a valid git reference. | `v1.1.0` | No |
 
 ## Dependencies ##
 

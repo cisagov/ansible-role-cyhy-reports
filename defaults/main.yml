@@ -3,5 +3,5 @@
 # cisagov/ansible-role-geoip2
 cyhy_reports_install_geoipupdate: false
 
-# The version of cisagov/cyhy-reports to use
+# The version of cisagov/cyhy-reports to use; must be a valid git reference
 cyhy_reports_version: v1.1.0
