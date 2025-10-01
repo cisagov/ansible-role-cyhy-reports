@@ -37,6 +37,7 @@ galaxy_info:
     #     - bullseye
     #     - bookworm
     #     - trixie
+    #     - forky
     # - name: Fedora
     #   versions:
     #     - "41"
