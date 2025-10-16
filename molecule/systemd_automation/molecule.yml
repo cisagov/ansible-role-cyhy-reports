@@ -1,0 +1,6 @@
+---
+# See ../../.config/molecule/config.yml for the Molecule configuration
+# that is shared among all scenarios.  Any values set here will
+# override the values in that file.
+scenario:
+  name: systemd_automation

@@ -1,0 +1,8 @@
+[Unit]
+Description=Generate CyHy reports.
+
+[Timer]
+OnCalendar={{ cyhy_reports_schedule }}
+
+[Install]
+WantedBy=timers.target

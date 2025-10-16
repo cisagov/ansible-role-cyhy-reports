@@ -115,3 +115,9 @@
   register: sync_output
   notify:
     - Install the cyhy-reports fonts
+
+- name: Install systemd timer and service to generate CyHy reports
+  ansible.builtin.include_tasks:
+    file: setup_automated_cyhy_reporting.yml
+  when:
+    - cyhy_reports_automation

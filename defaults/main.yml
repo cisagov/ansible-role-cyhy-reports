@@ -1,4 +1,21 @@
 ---
+# Whether or not to create and enable a systemd timer to automatically
+# generate CyHy reports on a schedule.  See also
+# cyhy_reports_schedule.
+cyhy_reports_automation: false
+
+# The maximum acceptable percentage for the disk usage of the volume
+# attached to cyhy_reports_data_mountpoint.  CyHy reporting will not
+# proceed if the disk usage is greater than this percentage.
+cyhy_reports_data_max_usage: 90
+
+# The path to the mountpoint that contains the CyHy reporting output.
+cyhy_reports_data_mountpoint: /var/cyhy/reports/output
+
+# The schedule according to which CyHy reporting is to be run.  The
+# format is described in the systemd.time man page.
+cyhy_reports_schedule: Mon 05:00:00
+
 # This mirrors the defaults in cisagov/ansible-role-cyhy-core and
 # cisagov/ansible-role-geoip2
 cyhy_reports_install_geoipupdate: false
