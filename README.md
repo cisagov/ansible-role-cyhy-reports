@@ -114,6 +114,7 @@ None.
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
+| cyhy\_reports\_cyhy\_core\_version | The version of cisagov/cyhy-core to use; must be a valid git reference. | `v1.1.14` | No |
 | cyhy\_reports\_file\_owner\_group | The name of the group that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_file\_owner\_username | The name of the user that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
