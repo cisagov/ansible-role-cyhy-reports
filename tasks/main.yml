@@ -6,11 +6,13 @@
     cyhy_core_install_geoipupdate: "{{ cyhy_reports_install_geoipupdate }}"
     cyhy_core_maxmind_account_id: "{{ cyhy_reports_maxmind_account_id }}"
     cyhy_core_maxmind_license_key: "{{ cyhy_reports_maxmind_license_key }}"
+    cyhy_core_version: "{{ cyhy_reports_cyhy_core_version }}"
 
 - name: Install cisagov/ncats-webd
   ansible.builtin.include_role:
     name: ncats_webd
   vars:
+    ncats_webd_cyhy_core_version: "{{ cyhy_reports_cyhy_core_version }}"
     # Since MaxMind download and set up is already done in the
     # cisagov/cyhy-core role, we just need to pass the required variables.
     ncats_webd_maxmind_account_id: "{{ cyhy_reports_maxmind_account_id }}"
