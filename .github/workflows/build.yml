@@ -20,7 +20,6 @@ defaults:
     shell: bash -Eueo pipefail -x {0}
 
 env:
-  AWS_DEFAULT_REGION: us-east-1
   PIP_CACHE_DIR: ~/.cache/pip
   PRE_COMMIT_CACHE_DIR: ~/.cache/pre-commit
   RUN_TMATE: ${{ secrets.RUN_TMATE }}
@@ -290,14 +289,6 @@ jobs:
           pip install --upgrade --requirement requirements-test.txt
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      - name: Assume AWS test role
-        uses: aws-actions/configure-aws-credentials@v5
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_DEFAULT_REGION }}
-          role-to-assume: ${{ secrets.TEST_ROLE_TO_ASSUME }}
-          role-duration-seconds: 3600
       # AppArmor interferes when running Molecule tests against Fedora
       # 40 and 41; it does not allow the privileged container to run
       # sudo and hence Ansible is unable to do anything.  See
@@ -312,6 +303,9 @@ jobs:
       - name: Disable AppArmor
         uses: cisagov/action-disable-apparmor@v1
       - name: Run molecule tests
+        env:
+          MAXMIND_ACCOUNT_ID: ${{ secrets.MAXMIND_ACCOUNT_ID }}
+          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: >-
           molecule test
           --platform-name ${{ matrix.platform }}-${{ matrix.architecture }}
