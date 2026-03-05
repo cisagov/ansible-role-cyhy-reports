@@ -10,8 +10,6 @@
         name: ansible-role-cyhy-reports
       vars:
         cyhy_reports_maxmind_account_id: >-
-          {{ lookup('aws_ssm', '/cyhy/core/geoip/account_id',
-          region='us-east-1') }}
+          {{ lookup('ansible.builtin.env', 'MAXMIND_ACCOUNT_ID') }}
         cyhy_reports_maxmind_license_key: >-
-          {{ lookup('aws_ssm', '/cyhy/core/geoip/license_key',
-          region='us-east-1') }}
+          {{ lookup('ansible.builtin.env', 'MAXMIND_LICENSE_KEY') }}

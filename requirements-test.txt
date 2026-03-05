@@ -14,7 +14,6 @@ ansible>=10,<11
 # requirements.txt in cisagov/skeleton-packer and
 # .pre-commit-config.yaml in cisagov/skeleton-generic.
 ansible-core>=2.17.7
-boto3
 # With the release of molecule v5 there were some breaking changes so
 # we need to pin at v5 or newer. However, v5.0.0 had an internal
 # dependency issue so we must use the bugfix release as the actual
