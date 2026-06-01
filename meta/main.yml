@@ -49,5 +49,6 @@ galaxy_info:
     #   versions:
     #     - jammy
     #     - noble
+    #     - resolute
   role_name: cyhy_reports
   standalone: true
