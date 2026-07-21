@@ -21,7 +21,7 @@ None.
 
 | Variable | Description | Default | Required |
 | -------- | ----------- | ------- | -------- |
-| cyhy\_reports\_cyhy\_core\_version | The version of cisagov/cyhy-core to use; must be a valid git reference. | `v1.2.0` | No |
+| cyhy\_reports\_cyhy\_core\_version | The version of cisagov/cyhy-core to use; must be a valid git reference. | `v1.3.0` | No |
 | cyhy\_reports\_file\_owner\_group | The name of the group that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_file\_owner\_username | The name of the user that should own any non-system files or directories created by this role. | [Omitted](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#making-variables-optional) | No |
 | cyhy\_reports\_install\_geoipupdate | Whether to install the MaxMind geoipupdate tool. | `false` | No |
@@ -29,7 +29,7 @@ None.
 | cyhy\_reports\_maxmind\_license\_key | The MaxMind license key that provides access to a GeoIP2 database subscription. | n/a | Yes |
 | cyhy\_reports\_texmf\_buffer\_size | The value to use for the texmf buffer size. | n/a | No |
 | cyhy\_reports\_texmf\_main\_memory | The value to use for the texmf main memory size. | n/a | No |
-| cyhy\_reports\_version | The version of cisagov/cyhy-reports to install; must be a valid git reference. | `v1.1.3` | No |
+| cyhy\_reports\_version | The version of cisagov/cyhy-reports to install; must be a valid git reference. | `v2.0.1` | No |
 
 ## Dependencies ##
 
