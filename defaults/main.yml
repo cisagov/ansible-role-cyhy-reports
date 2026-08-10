@@ -1,6 +1,6 @@
 ---
 # The version of cisagov/cyhy-core to use; must be a valid git reference.
-cyhy_reports_cyhy_core_version: v1.3.0
+cyhy_reports_cyhy_core_version: v1.3.2
 
 # This mirrors the defaults in cisagov/ansible-role-cyhy-core and
 # cisagov/ansible-role-geoip2
