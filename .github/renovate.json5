@@ -1,22 +1,4 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["config:recommended"],
-  // Dependabot keeps handling github-actions + pip; Renovate only manages the
-  // cyhy-core pin, so restrict it to the custom manager to avoid overlap.
-  enabledManagers: ["custom.regex"],
-  labels: ["dependencies"],
-  dependencyDashboard: true,
-  customManagers: [
-    {
-      customType: "regex",
-      managerFilePatterns: ["/^defaults/main\\.yml$/", "/^README\\.md$/"],
-      matchStrings: [
-        "cyhy_core_version:\\s*(?<currentValue>\\S+)", // defaults/main.yml
-        "cyhy\\\\?_core\\\\?_version[^`]*`(?<currentValue>[^`]+)`", // README table cell
-      ],
-      depNameTemplate: "cisagov/cyhy-core",
-      datasourceTemplate: "github-releases",
-      versioningTemplate: "semver-coerced", // handles the leading `v`
-    },
-  ],
+  extends: ["github>cisagov/ansible-role-cyhy-core//.github/renovate.json5"],
 }
