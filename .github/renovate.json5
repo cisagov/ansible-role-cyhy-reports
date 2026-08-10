@@ -1,0 +1,4 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>cisagov/ansible-role-cyhy-core//.github/renovate.json5"],
+}
