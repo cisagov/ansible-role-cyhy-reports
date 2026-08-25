@@ -6,5 +6,9 @@
 # See also cisagov/skeleton-ansible-role#153.
 - name: cyhy_core
   src: https://github.com/cisagov/ansible-role-cyhy-core
+  # renovate: datasource=github-releases depName=cisagov/ansible-role-cyhy-core
+  version: v1.1.12
 - name: ncats_webd
   src: https://github.com/cisagov/ansible-role-ncats-webd
+  # renovate: datasource=github-releases depName=cisagov/ansible-role-ncats-webd
+  version: v1.1.6
