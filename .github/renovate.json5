@@ -1,9 +1,9 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  // Renovate custom manager to keep the default role variable for the
-  // cisagov/cyhy-reports version updated to the latest.
   customManagers: [
     {
+      // Renovate custom manager to keep the default role variable for the
+      // cisagov/cyhy-reports version updated to the latest.
       customType: "regex",
       datasourceTemplate: "github-releases",
       depNameTemplate: "cisagov/cyhy-reports",
@@ -11,6 +11,15 @@
       matchStrings: [
         "cyhy_reports_version:\\s*(?<currentValue>\\S+)", // defaults/main.yml
         "cyhy\\\\?_reports\\\\?_version[^`]*`(?<currentValue>[^`]+)`", // README table cell
+      ],
+      versioningTemplate: "semver-coerced", // handles the leading `v`
+    },
+    {
+      customType: "regex",
+      datasourceTemplate: "github-releases",
+      managerFilePatterns: ["meta/main\\.yml", "meta/requirements\\.yml"],
+      matchStrings: [
+        "#\\s*renovate:\\s*datasource=github-releases\\s+depName=(?<depName>\\S+)\\s*version:\\s*(?<currentValue>\\S+)",
       ],
       versioningTemplate: "semver-coerced", // handles the leading `v`
     },
